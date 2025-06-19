@@ -19,7 +19,7 @@ public class UserController {
     public List<User> getUsers(){
        return this.userService.getUserList();
     }
-    @GetMapping(value = "{/id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public User getUser(@PathVariable int id){
         return this.userService.getUser(id);
     }

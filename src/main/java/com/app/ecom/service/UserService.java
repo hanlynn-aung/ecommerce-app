@@ -1,18 +1,19 @@
 package com.app.ecom.service;
 
 
-import com.app.ecom.entity.User;
+import com.app.ecom.controller.request.UserRequest;
+import com.app.ecom.controller.response.UserResponse;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
 
-    public List<User> getUserList();
+    public List<UserResponse> getUserList();
 
-    public void createUser(User user);
+    public void createUser(UserRequest user);
 
-    Optional<User> getUser(Long id);
+    Optional<UserResponse> getUser(Long id);
 
-    boolean updateUser(Long id,User user);
+    boolean updateUser(Long id,UserRequest user);
 }

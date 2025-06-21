@@ -1,11 +1,24 @@
 package com.app.ecom.entity;
 
-import lombok.Data;
+import com.app.ecom.common.UserRole;
+import jakarta.persistence.*;
+import lombok.*;
 
-@Data
-public class User {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "users")
+public class User extends AuditEntity {
 
-    private Long id;
     private String firstName;
     private String lastName;
+    private String email;
+    private String phoneNumber;
+    private UserRole role;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
 }

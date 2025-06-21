@@ -1,6 +1,6 @@
 package com.app.ecom.controller;
 
-import com.app.ecom.entity.User;
+import com.app.ecom.controller.request.UserRequest;
 import com.app.ecom.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -30,14 +30,14 @@ public class UserController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> addUser(@RequestBody User user) {
+    public ResponseEntity<?> addUser(@RequestBody UserRequest user) {
 
         this.userService.createUser(user);
         return ResponseEntity.ok("User has been created.");
     }
 
     @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody User user) {
+    public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody UserRequest user) {
 
         boolean updated = this.userService.updateUser(id, user);
 

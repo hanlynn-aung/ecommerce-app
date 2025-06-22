@@ -1,6 +1,6 @@
 package com.app.ecom.entity;
 
-import com.app.ecom.common.UserRole;
+import com.app.ecom.common.constact.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 

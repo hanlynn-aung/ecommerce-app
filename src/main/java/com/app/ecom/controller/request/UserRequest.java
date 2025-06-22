@@ -1,6 +1,6 @@
 package com.app.ecom.controller.request;
 
-import com.app.ecom.common.UserRole;
+import com.app.ecom.common.constact.UserRole;
 import com.app.ecom.controller.response.AddressResponse;
 import lombok.Getter;
 import lombok.Setter;

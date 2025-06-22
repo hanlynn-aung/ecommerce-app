@@ -1,6 +1,6 @@
 package com.app.ecom.controller.response;
 
-import com.app.ecom.common.UserRole;
+import com.app.ecom.common.constact.UserRole;
 import lombok.*;
 
 @Setter

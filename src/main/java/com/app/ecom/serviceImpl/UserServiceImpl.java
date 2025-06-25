@@ -37,12 +37,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void createUser(UserRequest userRequest) {
+    public UserResponse createUser(UserRequest userRequest) {
 
         User user = Builder.of(User::new)
                         .build();
 
-        this.userRepository.save(createOrUpateUser(user, userRequest));
+        user = createOrUpateUser(user, userRequest);
+
+        this.userRepository.save(user);
+
+        return mapToUserResponse(user);
     }
 
     @Override
@@ -61,6 +65,7 @@ public class UserServiceImpl implements UserService {
     private static User createOrUpateUser(User user, UserRequest userRequest) {
         user.setFirstName(userRequest.getFirstName());
         user.setLastName(userRequest.getLastName());
+        user.setUsername(userRequest.getUsername());
         user.setEmail(userRequest.getEmail());
         user.setPhoneNumber(userRequest.getPhoneNumber());
         user.setRole(userRequest.getRole());

@@ -18,10 +18,16 @@ import java.math.BigDecimal;
 public class Product extends AuditEntity {
 
     private String name;
+
     private String description;
+
     private BigDecimal price;
+
     private Integer stockQuantity;
+
     private String category;
+
     private String imageUrl;
+
     private Boolean active = true;
 }

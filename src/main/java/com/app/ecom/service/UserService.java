@@ -11,7 +11,7 @@ public interface UserService {
 
     public List<UserResponse> getUserList();
 
-    public void createUser(UserRequest user);
+    public UserResponse createUser(UserRequest user);
 
     Optional<UserResponse> getUser(Long id);
 

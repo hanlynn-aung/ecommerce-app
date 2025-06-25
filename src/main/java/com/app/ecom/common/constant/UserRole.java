@@ -1,4 +1,4 @@
-package com.app.ecom.common.constact;
+package com.app.ecom.common.constant;
 
 public enum UserRole {
     CUSTOMER,

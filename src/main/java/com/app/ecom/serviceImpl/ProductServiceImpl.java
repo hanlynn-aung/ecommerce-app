@@ -98,7 +98,7 @@ public class ProductServiceImpl implements ProductService {
     private ProductResponse maptoProductResponse(Product product) {
 
         return Builder.of(ProductResponse::new)
-                .add(ProductResponse::setId, product.getId())
+                .add(ProductResponse::setProductId, product.getId())
                 .add(ProductResponse::setName, product.getName())
                 .add(ProductResponse::setDescription, product.getDescription())
                 .add(ProductResponse::setCategory, product.getCategory())

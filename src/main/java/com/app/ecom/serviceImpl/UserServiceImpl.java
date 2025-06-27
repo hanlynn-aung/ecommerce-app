@@ -39,8 +39,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponse createUser(UserRequest userRequest) {
 
-        User user = Builder.of(User::new)
-                        .build();
+        User user = new User();
 
         user = createOrUpateUser(user, userRequest);
 
@@ -89,6 +88,7 @@ public class UserServiceImpl implements UserService {
         UserResponse userResponse = Builder.of(UserResponse::new)
                 .add(UserResponse::setFirstName, user.getFirstName())
                 .add(UserResponse::setLastName, user.getLastName())
+                .add(UserResponse::setUsername, user.getUsername())
                 .add(UserResponse::setEmail, user.getEmail())
                 .add(UserResponse::setPhoneNumber, user.getPhoneNumber())
                 .add(UserResponse::setRole, user.getRole())

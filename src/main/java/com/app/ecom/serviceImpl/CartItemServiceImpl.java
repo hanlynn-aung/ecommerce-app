@@ -85,7 +85,7 @@ public class CartItemServiceImpl implements CartItemService {
                     .add(CartItem::setUser, user)
                     .add(CartItem::setProduct, product)
                     .add(CartItem::setQuantity, cartItemRequest.getQuantity())
-                    .add(CartItem::setPrice, (product.getPrice().multiply(BigDecimal.valueOf(cartItemRequest.getQuantity()))))
+                    .add(CartItem::setPrice, product.getPrice())
                     .build();
 
             this.cartItemRepository.save(cartItem);
@@ -143,5 +143,13 @@ public class CartItemServiceImpl implements CartItemService {
         }
 
         return cartItemResponses;
+    }
+
+    @Override
+    public void clearCartItems(Long userId) {
+        User user = this.userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
+
+            this.cartItemRepository.deleteByUser(user);
     }
 }

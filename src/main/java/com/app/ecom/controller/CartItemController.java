@@ -21,8 +21,6 @@ public class CartItemController {
 
     private final CartItemService cartItemService;
 
-
-
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getCartItems(@RequestHeader("X-User-ID") Long userId) {
 
@@ -30,7 +28,7 @@ public class CartItemController {
 
         List<CartItemResponse> cartItemResponses = this.cartItemService.getCartItemByUser(userId);
 
-        data.put("cartItemResponses", cartItemResponses);
+        data.put("cart_item_responses", cartItemResponses);
 
         return HttpResponse.success(AppConstant.SUCCESS_MESSAGE, data);
     }

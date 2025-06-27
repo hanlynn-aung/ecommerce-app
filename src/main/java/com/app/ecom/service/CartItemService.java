@@ -12,4 +12,6 @@ public interface CartItemService {
     void removeFromCart(Long userId, Long productId);
 
     List<CartItemResponse> getCartItemByUser(Long userId);
+
+    void clearCartItems(Long userId);
 }
